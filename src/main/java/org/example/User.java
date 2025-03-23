@@ -1,8 +1,6 @@
 package org.example;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.mindrot.jbcrypt.BCrypt;
-
 import java.time.LocalDate;
 
 public class User {

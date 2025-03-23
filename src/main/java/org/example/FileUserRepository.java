@@ -65,8 +65,6 @@ public class FileUserRepository implements UserRepository{
 
             return objectMapper.readValue(bytes, new TypeReference<List<User>>() {});
 
-        } catch (FileNotFoundException e) {
-           return new ArrayList<>();
         } catch (IOException e) {
             return new ArrayList<>();
         }
