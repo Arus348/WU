@@ -1,5 +1,7 @@
 package Users;
 
+import org.example.User;
+
 import java.time.LocalDate;
 
 public class Student extends User {

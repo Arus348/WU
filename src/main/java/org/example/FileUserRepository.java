@@ -1,10 +1,8 @@
 package org.example;
 
-import Users.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -30,7 +28,6 @@ public class FileUserRepository implements UserRepository {
             }
         }
         if (areExists != 1) {
-            newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt(12)));
             users.add(newUser);
 
             ObjectMapper objectMapper = new ObjectMapper();
@@ -41,7 +38,6 @@ public class FileUserRepository implements UserRepository {
 
                 File file = new File("D:/Pliki studia/fileUsersTypFile.json");
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
-                System.out.println(json);
                 fileOutputStream.write(json.getBytes(StandardCharsets.UTF_8));
                 fileOutputStream.close();
 

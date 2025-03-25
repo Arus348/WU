@@ -1,7 +1,5 @@
 package org.example;
 
-import Users.User;
-
 import java.io.FileNotFoundException;
 import java.util.List;
 

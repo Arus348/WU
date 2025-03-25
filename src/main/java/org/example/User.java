@@ -1,18 +1,10 @@
-package Users;
+package org.example;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME
-        , include = JsonTypeInfo.As.EXISTING_PROPERTY
-        , property = "type", visible = true)
-@JsonSubTypes({
-        @JsonSubTypes.Type(value = Student.class, name = "Student")
-        , @JsonSubTypes.Type(value = Teacher.class, name = "Techer")
-        , @JsonSubTypes.Type(value = Administrator.class, name = "Administrator")
-})
-public abstract class User {
+public class User {
 
     private String firstName;
     private String lastName;
@@ -24,8 +16,6 @@ public abstract class User {
 
     public User() {
     }
-
-    ;
 
     public User(String firstName, String lastName, String email, String password, LocalDate dateOfBirth) {
         this.firstName = firstName;
@@ -59,7 +49,4 @@ public abstract class User {
         return this.password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

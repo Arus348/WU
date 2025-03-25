@@ -1,7 +1,6 @@
 package org.example;
 
 import Users.Student;
-import Users.User;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
