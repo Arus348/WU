@@ -1,9 +1,17 @@
-package org.example;
+package Users;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.*;
 import java.time.LocalDate;
 
-public class User {
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME
+        , include = JsonTypeInfo.As.EXISTING_PROPERTY
+        , property = "type", visible = true)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Student.class, name = "Student")
+        , @JsonSubTypes.Type(value = Teacher.class, name = "Techer")
+        , @JsonSubTypes.Type(value = Administrator.class, name = "Administrator")
+})
+public abstract class User {
 
     private String firstName;
     private String lastName;

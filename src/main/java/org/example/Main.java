@@ -1,17 +1,19 @@
 package org.example;
 
-import org.mindrot.jbcrypt.BCrypt;
+import Users.Administrator;
+import Users.Student;
+import Users.Teacher;
+import Users.User;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        User user1 = new User("Adam","Nowak","adam@onet.eu","adam@34", LocalDate.of(1925,10,15));
-        User user2 = new User("Jan", "Kowalski","janek@interia.pl","jaki485",LocalDate.of(1995,10,20));
-        User user3 = new User("Mire", "Frązek", "mirk@gmail.com","mirr15",LocalDate.of(2005,1,25));
+        User user1 = new Student("Adam","Nowak","adam@onet.eu","adam@34", LocalDate.of(1925,10,15), 45351);
+        User user2 = new Teacher("Jan", "Kowalski","janek@interia.pl","jaki485",LocalDate.of(1995,10,20), "Doctor");
+        User user3 = new Administrator("Mire", "Frązek", "mirk@gmail.com","mirr15",LocalDate.of(2005,1,25));
 
         FileUserRepository fileUserRepository = new FileUserRepository();
         fileUserRepository.insert(user1);
