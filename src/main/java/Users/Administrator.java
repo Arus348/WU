@@ -2,7 +2,7 @@ package Users;
 
 import java.time.LocalDate;
 
-public class Administrator extends User{
+public class Administrator extends User {
 
     private final String administratos = "Administrator";
 
@@ -10,7 +10,7 @@ public class Administrator extends User{
         super(firstName, lastName, email, password, dateOfBirth);
     }
 
-    public String getAdministratos(){
-        return  administratos;
+    public String getAdministratos() {
+        return administratos;
     }
 }

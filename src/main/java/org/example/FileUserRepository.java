@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FileUserRepository implements UserRepository{
+public class FileUserRepository implements UserRepository {
 
     private int areExists;
 
@@ -21,16 +21,16 @@ public class FileUserRepository implements UserRepository{
         List<User> users = findAll();
 
         //sprawdzenie czy email już w bazie istenieje, jak tak to nie zakladamy konta
-        for(User user: users){
-            areExists=0;
-            if (user.areExists(newUser)){
-                areExists=1;
+        for (User user : users) {
+            areExists = 0;
+            if (user.areExists(newUser)) {
+                areExists = 1;
                 System.out.println("Taki email już istnieje: " + user.getEmail() + ". Prosze się zalogować.");
                 break;
             }
         }
         if (areExists != 1) {
-            newUser.setPassword(BCrypt.hashpw(newUser.getPassword(),BCrypt.gensalt(12)));
+            newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt(12)));
             users.add(newUser);
 
             ObjectMapper objectMapper = new ObjectMapper();
@@ -57,7 +57,7 @@ public class FileUserRepository implements UserRepository{
     @Override
     public List<User> findAll() {
 
-        FileInputStream fileInputStream ;
+        FileInputStream fileInputStream;
         try {
             fileInputStream = new FileInputStream("D:/Pliki studia/fileUsersTypFile.json");
             byte[] bytes = fileInputStream.readAllBytes();
@@ -65,7 +65,8 @@ public class FileUserRepository implements UserRepository{
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.findAndRegisterModules();
 
-            return objectMapper.readValue(bytes, new TypeReference<List<User>>() {});
+            return objectMapper.readValue(bytes, new TypeReference<List<User>>() {
+            });
 
         } catch (IOException e) {
             return new ArrayList<>();

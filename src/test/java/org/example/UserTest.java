@@ -12,7 +12,7 @@ class UserTest {
 
     @Test
     void getUser() {
-        User user1 = new Student("Jan", "Kowalski","jan@kowalski.pl","bkbksdbc", LocalDate.of(2015,12,10),4414);
+        User user1 = new Student("Jan", "Kowalski", "jan@kowalski.pl", "bkbksdbc", LocalDate.of(2015, 12, 10), 4414);
         String firstName = user1.getFirstName();
         String lastName = user1.getLastName();
         String email = user1.getEmail();

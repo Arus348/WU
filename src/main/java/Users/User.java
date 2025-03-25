@@ -1,6 +1,7 @@
 package Users;
 
 import com.fasterxml.jackson.annotation.*;
+
 import java.time.LocalDate;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME
@@ -21,8 +22,10 @@ public abstract class User {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
 
-    public User(){
-    };
+    public User() {
+    }
+
+    ;
 
     public User(String firstName, String lastName, String email, String password, LocalDate dateOfBirth) {
         this.firstName = firstName;
@@ -32,11 +35,11 @@ public abstract class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Boolean areExists(User newUser){
+    public Boolean areExists(User newUser) {
         return this.email.equalsIgnoreCase(newUser.email);
     }
 
-    public String getFirstName(){
+    public String getFirstName() {
         return firstName;
     }
 
@@ -53,7 +56,7 @@ public abstract class User {
     }
 
     public String getPassword() {
-        return  this.password;
+        return this.password;
     }
 
     public void setPassword(String password) {
